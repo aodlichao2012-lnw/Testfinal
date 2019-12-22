@@ -4,43 +4,31 @@ namespace Raincanhold
 {
     class Rain
     {
-      
 
-        static int findRain(int[] arr, int n)
+        static int[] arr = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        static int findWater(int n)
         {
-            int result = 0;
-            int left_max = 0, right_max = 0;
-            int lo = 0, hi = n - 1;
-            while (lo <= hi)
-            {
-                if (arr[lo] < arr[hi])
-                {
-                    if (arr[lo] > left_max)
-                        left_max = arr[lo];
-                    else
-                        result += left_max - arr[lo];
-                    lo++;
-                }
-                else
-                {
-                    if (arr[hi] > right_max)
-                        right_max = arr[hi];
-                    else
-                        result += right_max - arr[hi];
-                    hi--;
-                }
-            }
-            return result;
-        }
+            int[] left = new int[n];
+            int[] right = new int[n];
+            int water = 0; 
+            left[0] = arr[0];
+            for (int i = 1; i < n; i++)
+                left[i] = Math.Max(left[i - 1], arr[i]);
+            right[n - 1] = arr[n - 1];
+            for (int i = n - 2; i >= 0; i--)
+                right[i] = Math.Max(right[i + 1], arr[i]);
+            for (int i = 0; i < n; i++)
+                water += Math.Min(left[i], right[i]) - arr[i];
+
+            return water;
+        } 
         public static void Main()
         {
-            int[] arr = new int[10];
-            for(int d = 0; d < arr.Length; d ++)
-            {
-                int.TryParse(Console.ReadLine(), out arr[d]);
-            }
-            int result = findRain(arr, arr.Length);
-            Console.WriteLine(" Total number of Tarp  : " + result);
+
+            Console.WriteLine("Maximum water that can be accumulated is " + findWater(arr.Length));
         }
     }
 }
+    
+
+
