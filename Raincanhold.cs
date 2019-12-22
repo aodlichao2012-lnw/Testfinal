@@ -40,7 +40,7 @@ namespace Raincanhold
                 int.TryParse(Console.ReadLine(), out arr[d]);
             }
             int result = findRain(arr, arr.Length);
-            Console.WriteLine(" Total number of block that can hold the rain : " + result);
+            Console.WriteLine(" Total number of Tarp that can hold the rain : " + result);
         }
     }
 }
