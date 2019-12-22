@@ -6,7 +6,7 @@ namespace Raincanhold
     {
       
 
-        static int findWater(int[] arr, int n)
+        static int findRain(int[] arr, int n)
         {
             int result = 0;
             int left_max = 0, right_max = 0;
@@ -39,8 +39,8 @@ namespace Raincanhold
             {
                 int.TryParse(Console.ReadLine(), out arr[d]);
             }
-            int result = findWater(arr, arr.Length);
-            Console.WriteLine(" Total trapping water: " + result);
+            int result = findRain(arr, arr.Length);
+            Console.WriteLine(" Total number of block that can hold the rain : " + result);
         }
     }
 }
