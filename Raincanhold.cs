@@ -5,7 +5,15 @@ namespace Raincanhold
     class Rain
     {
 
-        static int[] arr = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
+        static int[] arr = new int[10];
+        static void inputWater()
+        {
+            for(int i = 0; i < arr.Length; i++)
+            {
+                int.TryParse(Console.ReadLine(), out arr[i]);
+            }
+            
+        }
         static int findWater(int n)
         {
            
@@ -25,7 +33,7 @@ namespace Raincanhold
         } 
         public static void Main()
         {
-
+            inputWater();
             Console.WriteLine("Maximum water that can be accumulated is " + findWater(arr.Length));
         }
     }
