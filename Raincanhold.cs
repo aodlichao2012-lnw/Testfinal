@@ -8,6 +8,7 @@ namespace Raincanhold
         static int[] arr = new int[] { 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 };
         static int findWater(int n)
         {
+           
             int[] left = new int[n];
             int[] right = new int[n];
             int water = 0; 
